@@ -4,7 +4,6 @@ import 'package:trans/Translation.dart';
 import 'package:trans/TranslationSimple.dart';
 
 class Dictionary {
-  String json;
 
   List<Translation> vocabulary;
 
