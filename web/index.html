@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="scaffolded-by" content="https://github.com/dart-lang/stagehand">
+    <title>trans</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+
+    <p><pre>
+        Compare structure of vocabularies:
+
+        // by intuitive designation and expectation not big amount of translation
+        // we can choose flat list
+
+        // Flat List.
+        // O(n) where n is all our translation, all langs and keys variation
+        // Any search require iterate all collection with check for lang and key
+        [
+            { "lang": "ru", "key": "hello %s", "translation": "Privet s%!" },
+            ...
+        ]
+
+        // Nested struct. ( group by lang )
+        [
+            {
+                "ru" : [
+                    {  "key": "hello %s", "translation": "Privet s%!" },
+                    ...
+                ]
+            }
+        ]
+
+        // Nested struct. ( group by key )
+        [
+            {
+                "hello %s" : [
+                    {  "lang": "ru", "translation": "Privet s%!" },
+                    ...
+                ]
+            }
+        ]
+
+        // Nested struct ( group by key and lang )
+        {
+            "hello %s" : {
+                "ru": { "translation": "Privet s%!" },
+                "ua": { "translation": "Vitayu s%!" },
+                ...
+            }
+        }
+    </pre></p>
+    <div id="output"></div>
+
+</body>
+</html>
